@@ -1,0 +1,30 @@
+﻿
+.component-container{
+  display: grid;
+  grid-template-columns: 25% auto 25%;
+  grid-template-rows: 200px auto 200px;
+
+}
+
+.login-container{
+  grid-column: 2;
+  grid-row:2;
+  margin: 0 auto;
+}
+
+.login-container > input , .login-container button  {
+  display: block;
+  padding: 10px;
+  margin: 20px;
+  width: 250px;
+}
+
+.login-errorMessage{
+  grid-row: 3;
+  grid-column:2;
+  margin: 0 auto;
+  padding-top:50px;
+
+  font-size: 25px;
+  color:red;
+}

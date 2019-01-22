@@ -1,0 +1,11 @@
+<div class="component-container">
+  <div class="login-container">
+
+    <input type="text" id="usernameInput" [placeholder]="ui.usernamePlaceholder" [(ngModel)]="loginModel.username" />
+    <input type="password" id="passwordInput" [placeholder]="ui.passwordPlaceholder" [(ngModel)]="loginModel.password" />
+
+    <button id="login" class='btn btn-primary' (click)="login()">{{ui.loginButtonPlaceholder}}</button>
+
+  </div>
+  <h2 class=login-errorMessage>{{ui.errorMessage}}</h2>
+</div>

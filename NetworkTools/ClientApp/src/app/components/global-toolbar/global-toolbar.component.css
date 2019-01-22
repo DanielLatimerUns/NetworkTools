@@ -1,0 +1,11 @@
+﻿.toolbar-container{
+  grid-template-columns: 90% 10%;
+  display:grid;
+
+  background: darkgray;
+  width: 100%;
+}
+
+.toolbar-loginLogout{
+grid-column: 2;
+}

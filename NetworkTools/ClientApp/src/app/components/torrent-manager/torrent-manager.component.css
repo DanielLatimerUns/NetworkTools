@@ -1,0 +1,25 @@
+﻿.component-container{
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: 50px auto;
+}
+
+.content{
+  grid-column: 2;
+  grid-row: 2;
+  max-height: 800px;
+  overflow: scroll;
+}
+
+.top-toolbar{
+grid-column: 2;
+grid-row:1;
+}
+
+.side-toolbar{
+  background: blue;
+grid-column: 1;
+grid-row:2;
+}
+
+

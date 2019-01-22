@@ -1,0 +1,10 @@
+
+<div class='form-container'>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="torrent">{{ui.fileSelectionInputText}}</label>
+      <input type="file" id="torrent" (change)="onFileChange($event)">
+    </div>
+  </form>
+</div>
+<div
