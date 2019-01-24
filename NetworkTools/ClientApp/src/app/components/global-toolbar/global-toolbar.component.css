@@ -1,11 +1,36 @@
-﻿.toolbar-container{
-  grid-template-columns: 90% 10%;
-  display:grid;
-
-  background: darkgray;
+.toolbar-container {
+  background-color: #7DBBFF;
   width: 100%;
 }
 
-.toolbar-loginLogout{
-grid-column: 2;
+.toolbar-Logout {
+  float: right;
+  background-color: #EE3C4C;
+  border-left: solid;
+  border-color: #4F4F4F;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    border-right: solid;
+    border-color: #4F4F4F;
+    border-width:1px;
+
+  }
+
+

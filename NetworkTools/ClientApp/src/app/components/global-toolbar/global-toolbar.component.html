@@ -1,9 +1,18 @@
 <div class="toolbar-container">
 
   <div class="toolbar-menu">
-    
+
+    <div class="main-ToolBar">
+
+      <ul>
+        <li><a (click)="movies()" href="#">Movies</a></li>
+        <li><a (click)="tvshows()" href="#">Tv Shows</a></li>
+        <li><a (click)="settings()" href="#">Settings</a></li>
+        <li class="toolbar-Logout" ><a (click)="logout()" href=#>Logout</a></li>
+      </ul>
+
+    </div>
+
   </div>
-  <div class="toolbar-loginLogout">
-    <a (click)="logout()" href=#>Logout</a>
-  </div>
+
 </div>
