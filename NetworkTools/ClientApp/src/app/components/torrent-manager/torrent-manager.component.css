@@ -3,9 +3,7 @@
 
 .content{
   display: grid;
-  overflow: scroll;
   padding-left: 150px;
-  position: fixed;
 }
 
 .side-toolbar{
