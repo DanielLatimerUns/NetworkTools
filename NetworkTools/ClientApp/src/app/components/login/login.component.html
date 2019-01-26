@@ -1,11 +1,26 @@
 <div class="component-container">
-  <div class="login-container">
 
-    <input type="text" id="usernameInput" [placeholder]="ui.usernamePlaceholder" [(ngModel)]="loginModel.username" />
-    <input type="password" id="passwordInput" [placeholder]="ui.passwordPlaceholder" [(ngModel)]="loginModel.password" />
+  <div class="login-box">
 
-    <button id="login" class='btn btn-primary' (click)="login()">{{ui.loginButtonPlaceholder}}</button>
+    <h1>Login</h1>
+
+    <div class="login-textbox">
+      <i class="fas fa-user"></i>
+      <input type="text" id="usernameInput" [placeholder]="ui.usernamePlaceholder" [(ngModel)]="loginModel.username" />
+    </div>
+
+    <div class="login-textbox">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="passwordInput" [placeholder]="ui.passwordPlaceholder" [(ngModel)]="loginModel.password" />
+    </div>
+
+    <button class='login-btn' (click)="login()">{{ui.loginButtonPlaceholder}}</button>
+
+    <h4 class=login-errorMessage>{{ui.errorMessage}}</h4>
 
   </div>
-  <h2 class=login-errorMessage>{{ui.errorMessage}}</h2>
-</div>
+
+ </div>
+
+
+
