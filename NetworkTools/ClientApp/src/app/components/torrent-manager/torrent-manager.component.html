@@ -1,11 +1,17 @@
 ﻿<div class="component-container">
 
-  <div class="top-toolbar"></div>
   <div class="side-toolbar">
+    <ul>
+      <li>
+        <button>
+          Add
+        </button>
+      </li>
+    </ul>
   </div>
+
   <div class="content">
-    <ul class="torrent-list">
-      <li *ngFor="let torrent of torrents">
+      <div class="torrent-item" *ngFor="let torrent of torrents">
         <h2>{{torrent.name}}</h2>
         <div class="torrent-details">
           <div><label>Status: </label><P>{{torrent.currentState}}</P></div>
@@ -13,8 +19,10 @@
           <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
           <div><label>Progress : </label><P>{{torrent.progress}}</P></div>
         </div>
-      </li>
-    </ul>
+        <div class="torrent-options">
+          <button>Stop/Start</button>
+          <button>Delete</button>
+        </div>
+      </div>
   </div>
-
 </div>
