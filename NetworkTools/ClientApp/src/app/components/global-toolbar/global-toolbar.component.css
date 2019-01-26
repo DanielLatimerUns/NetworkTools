@@ -1,11 +1,43 @@
-﻿.toolbar-container{
-  grid-template-columns: 90% 10%;
-  display:grid;
-
-  background: darkgray;
-  width: 100%;
+.toolbar-container {
+  display: grid;
+  background-color: #333;
+  grid-template-columns: auto 140px;
+  text-decoration: none;
 }
 
-.toolbar-loginLogout{
-grid-column: 2;
+.menu-left {
+  grid-column:1;
+  display: flex;
+  width:400px;
 }
+
+.menu-right {
+  grid-column: 2;
+  display: flex;
+}
+
+.menu-items-item {
+  width: 90px;
+  text-align: center;
+  padding: 14px 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.toolbar-Logout {
+  background-color: #EE3C4C;
+  width: 70px;
+  text-align: center;
+  padding: 14px 10px;
+}
+
+.menu-items-spacer {
+  border-left: solid;
+  border-color: #4F4F4F;
+  border-width: 1px;
+}
+
+
