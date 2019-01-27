@@ -3,7 +3,7 @@
 .toolbar-container {
   display: grid;
   background-color: #333;
-  grid-template-columns: auto 135px;
+  grid-template-columns: auto 250px;
   text-decoration: none;
 }
 
@@ -44,7 +44,7 @@
 a {
   text-decoration: none;
   color: white;
-  font-size:13px;
+  font-size: 13px;
 }
 
 .toolbar-Logout {
@@ -64,3 +64,24 @@ i {
   font-size:30px;
 }
 
+.toolbar-speed-monitor {
+  grid-template-rows: 31px 31px;
+  width: 110px;
+  text-align: center;
+  padding:12px 0px 10px;
+  margin: 0;
+}
+
+.toolbar-speed-monitor i {
+  font-size:16px;
+}
+
+.toolbar-speed-monitor-upload {
+  grid-row: 1;
+  font-size: 13px;
+}
+
+.toolbar-speed-monitor-download {
+  grid-row: 2;
+  font-size: 13px;
+}

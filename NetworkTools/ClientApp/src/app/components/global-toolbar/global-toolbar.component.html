@@ -2,20 +2,25 @@
   <div class="toolbar-container">
     <div class="menu-left">
 
-      <div class="menu-items-item"><a (click)="Home()" href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a></div>
+      <a (click)="Home()" href="#"><div class="menu-items-item"><i class="fa fa-home" aria-hidden="true"></i>Home</div></a>
       <div class="menu-items-spacer"></div>
-      <div class="menu-items-item"><a (click)="movies()" href="#"><i class="fa fa-film" aria-hidden="true"></i>Movies</a></div>
+      <a (click)="movies()" href="#"><div class="menu-items-item"><i class="fa fa-film" aria-hidden="true"></i>Movies</div></a>
       <div class="menu-items-spacer"></div>
-      <div class="menu-items-item"><a (click)="tvshows()" href="#"><i class="fa fa-television" aria-hidden="true"></i>Shows</a></div>
+      <a (click)="tvshows()" href="#"><div class="menu-items-item"><i class="fa fa-television" aria-hidden="true"></i>Shows</div></a>
       <div class="menu-items-spacer"></div>
-      <div class="menu-items-item"><a (click)="torrents()" href="#"><i class="fa fa-download" aria-hidden="true"></i>Torrents</a></div>
+      <a (click)="torrents()" href="#"><div class="menu-items-item"><i class="fa fa-download" aria-hidden="true"></i>Torrents</div></a>
+      <div class="menu-items-spacer"></div>
 
     </div>
     <div class="menu-right">
-      
-      <div class="menu-items-item"><a (click)="settings()" href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></div>
+      <div class="toolbar-speed-monitor">
+        <div class="toolbar-speed-monitor-upload"><i class="fa fa-arrow-circle-o-up" aria-hidden="true">&nbsp;&nbsp;</i>0.00MiB/s</div>
+        <div class="toolbar-speed-monitor-download"><i class="fa fa-arrow-circle-o-down" aria-hidden="true">&nbsp;&nbsp;</i>0.00MiB/s</div>
+      </div>
       <div class="menu-items-spacer"></div>
-      <div class="toolbar-Logout"><a (click)="logout()" href=#><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></div>
+      <a (click)="settings()" href="#"><div class="menu-items-item"><i class="fa fa-cog" aria-hidden="true"></i>Settings</div></a>
+      <div class="menu-items-spacer"></div>
+      <a (click)="logout()" href=#><div class="toolbar-Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</div></a>
 
     </div>
   </div>
