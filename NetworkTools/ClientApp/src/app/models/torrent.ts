@@ -6,7 +6,7 @@ interface TorrentModel {
   totalSize: string;
   sizeLeft: string;
   uploaded: string;
-  hASH: string;
+  hash: string;
   addedDate: Date;
   currentState: string;
 

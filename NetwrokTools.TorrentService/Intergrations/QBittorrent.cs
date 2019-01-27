@@ -38,13 +38,8 @@ namespace NetwrokTools.TorrentService.Intergrations
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("multipart/form-data"));
 
                     
-                 var response = await client.PostAsync(IntergrationURL+"/api/v2/torrents/add", form);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return;
-                    }
-                    else
+                    var response = await client.PostAsync(IntergrationURL+"/api/v2/torrents/add", form);
+                    if (!response.IsSuccessStatusCode)
                     {
                         throw new Exception($"Request failed with error code :{response.StatusCode}");
                     }
@@ -70,19 +65,40 @@ namespace NetwrokTools.TorrentService.Intergrations
             }
         }
 
-        public Task RemoveTorrent(string TorrentID)
+        public async Task RemoveTorrent(string Hash, bool deleteFile)
         {
-            throw new NotImplementedException();
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(IntergrationURL + @"/api/v2/torrents/delete?hashes=" + Hash + "&deleteFiles="+deleteFile);
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Request failed with error code :{response.StatusCode}");
+                }
+            }
         }
 
-        public Task StartTorrent(string TorrentID)
+        public async Task StartTorrent(string Hash)
         {
-            throw new NotImplementedException();
+            using(var client = new HttpClient())
+            {
+                var response = await client.GetAsync(IntergrationURL + @"/api/v2/torrents/resume?hashes=" + Hash);
+                if(!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Request failed with error code :{response.StatusCode}");
+                }
+            }
         }
 
-        public Task StopTorrent(string TorrentID)
+        public async Task StopTorrent(string Hash)
         {
-            throw new NotImplementedException();
+            using(var client = new HttpClient())
+            {
+                var response = await client.GetAsync(IntergrationURL + @"/api/v2/torrents/pause?hashes=" + Hash);
+                if(!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Request failed with error code :{response.StatusCode}");
+                }
+            }
         }
     }
 }

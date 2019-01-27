@@ -42,7 +42,22 @@ namespace NetwrokTools.TorrentService.Service
         public async Task<List<TorrentModel>> GetTorrentsAsync()
         {
             return await _bittorrent.GetTorrents();
-        } 
+        }
+
+        public async Task RemoveTorrent(string hash, bool deleteFile)
+        {
+            await _bittorrent.RemoveTorrent(hash, deleteFile);
+        }
+
+        public async Task StartTorrent(string hash)
+        {
+            await _bittorrent.StartTorrent(hash);
+        }
+
+        public async Task StopTorrent(string hash)
+        {
+            await _bittorrent.StopTorrent(hash);
+        }
 
         private void ConfigureTorrentProvider()
         {

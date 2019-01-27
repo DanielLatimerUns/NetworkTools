@@ -9,9 +9,9 @@ namespace NetwrokTools.TorrentService.Intergrations
     interface IBittorrent
     {
         Task AddNewTorrent(string TorrentLocation);
-        Task RemoveTorrent(string TorrentID);
-        Task StartTorrent(string TorrentID);
-        Task StopTorrent(string TorrentID);
+        Task RemoveTorrent(string Hash,bool deleteFile);
+        Task StartTorrent(string Hash);
+        Task StopTorrent(string Hash);
         Task<List<TorrentModel>> GetTorrents();
     }
 }

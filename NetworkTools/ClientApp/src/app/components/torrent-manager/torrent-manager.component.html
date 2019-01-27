@@ -10,8 +10,8 @@
           <div><label>Progress : </label><P>{{torrent.progress}}</P></div>
         </div>
         <div class="torrent-options">
-          <button>Stop/Start</button>
-          <button>Delete</button>
+          <button (click)="startStopTorrent(torrent.hash)">Stop/Start</button>
+          <button (click)="removeTorrent(torrent.hash,false)">Delete</button>
         </div>
       </div>
   </div>

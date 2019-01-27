@@ -13,4 +13,16 @@ export class TorrentService {
     public getTorrents(): Observable<TorrentModel[]> {
       return this.http.get<TorrentModel[]>('/api/torrents');
     }
+
+    public removeTorrent(hash: string, permDelete: boolean): Observable<any> {
+      return this.http.delete(`/api/torrents/${hash}/${permDelete}`);
+    }
+
+    public startTorrent(hash: string): Observable<any> {
+      return this.http.get(`/api/torrents/start/${hash}`);
+    }
+
+    public stopTorrent(hash: string): Observable<any> {
+      return this.http.get(`/api/torrents/stop/${hash}`);
+    }
 }

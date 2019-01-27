@@ -16,7 +16,6 @@ using NetwrokTools.TorrentService.Service;
 namespace NetworkTools.Web.Controllers
 {
     [Route("api/torrents")]
-    
     public class TorrentController : Controller
     {
         private ITorrentService _torrentService;
@@ -51,8 +50,8 @@ namespace NetworkTools.Web.Controllers
             {
                 return StatusCode(500, ex);
             }
-
         }
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> get()
@@ -66,7 +65,30 @@ namespace NetworkTools.Web.Controllers
             {
                 return StatusCode(500, ex);
             }
-            
+        }
+
+        [HttpGet("start/{hash}")]
+        [Authorize]
+        public async Task<IActionResult> start(string hash)
+        {
+            await _torrentService.StartTorrent(hash);
+            return Ok();
+        }
+
+        [HttpGet("stop/{hash}")]
+        [Authorize]
+        public async Task<IActionResult> stop(string hash)
+        {
+            await _torrentService.StopTorrent(hash);
+            return Ok();
+        }
+
+        [HttpDelete("{hash}/{perm}")]
+        [Authorize]
+        public async Task<IActionResult> delete(string hash,bool perm)
+        {
+            await _torrentService.RemoveTorrent(hash, perm);
+            return Ok();
         }
     }
 }
