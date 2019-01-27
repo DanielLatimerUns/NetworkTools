@@ -69,5 +69,20 @@ namespace NetwrokTools.TorrentService.Intergrations
                 }
             }
         }
+
+        public Task RemoveTorrent(string TorrentID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task StartTorrent(string TorrentID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task StopTorrent(string TorrentID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

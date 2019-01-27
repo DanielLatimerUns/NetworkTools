@@ -30,6 +30,7 @@ import { TorrentManagerComponent } from './components/torrent-manager/torrent-ma
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'home', component: HomeComponent, pathMatch: 'full'},
       { path: 'login', component: LoginComponent, pathMatch: 'full'},
       { path: 'torrent-manager', component: TorrentManagerComponent , pathMatch: 'full'}
     ])
