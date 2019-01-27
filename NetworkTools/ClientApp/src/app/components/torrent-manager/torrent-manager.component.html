@@ -1,5 +1,6 @@
-﻿<div class="component-container">
-  <div class="content">
+<div class="component-container" [disabled]="showNewTorrentWindow">
+
+  <div class="torrent-list">
       <div class="torrent-item" *ngFor="let torrent of torrents">
         <h2>{{torrent.name}}</h2>
         <div class="torrent-details">
@@ -12,6 +13,19 @@
           <button>Stop/Start</button>
           <button>Delete</button>
         </div>
+      </div>
+  </div>
+
+  <div class="torrent-toolbar">
+    <button (click)="openNewTorrentWindow()">Add new torrent</button>
+  </div>
+
+  <div class="new-torrent-window" *ngIf="showNewTorrentWindow">
+      <h1>Add a Torrent</h1>
+      <app-file-upload></app-file-upload>
+      <div>
+        <button (click)="submitNewTorrent()">Submit</button>
+        <button (click)="closeNewTorrentWindow()">Close</button>
       </div>
   </div>
 </div>

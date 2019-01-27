@@ -1,5 +1,6 @@
-﻿import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TorrentService } from '../../services/torrent.service';
+import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 @Component({
     selector: 'app-torrent-manager',
@@ -13,6 +14,8 @@ export class TorrentManagerComponent {
     }
 
     torrents: TorrentModel[];
+    showNewTorrentWindow = false;
+    @ViewChild(FileUploadComponent)fileUploader: FileUploadComponent;
 
     loadTorrents() {
       this.torrentService.getTorrents().subscribe(
@@ -24,5 +27,27 @@ export class TorrentManagerComponent {
         },
         () => {}
       );
+    }
+
+    public submitNewTorrent() {
+      if (this.fileUploader.torrentFormFile) {
+        this.torrentService.addTorrent(this.fileUploader.torrentFormFile).subscribe(
+          (response) => {
+            this.closeNewTorrentWindow();
+            this.loadTorrents();
+          },
+          error => {
+            console.error(error);
+          }
+        );
+      }
+    }
+
+    public closeNewTorrentWindow() {
+      this.showNewTorrentWindow = false;
+    }
+
+    public openNewTorrentWindow() {
+      this.showNewTorrentWindow = true;
     }
 }

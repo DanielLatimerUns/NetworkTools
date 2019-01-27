@@ -11,8 +11,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class FileUploadComponent {
 
-   @Output()
-  file: EventEmitter<any> = new EventEmitter<any>();
+
+  public torrentFormFile: any;
 
 
   form: FormGroup;
@@ -37,7 +37,7 @@ export class FileUploadComponent {
       this.form.get('torrent').setValue(file);
 
     const torrentFile = this.prepareSave();
-    this.file.emit(torrentFile);
+    this.torrentFormFile = torrentFile;
     }
   }
 

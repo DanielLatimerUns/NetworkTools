@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginModel } from '../../models/loginModel';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
@@ -15,6 +15,9 @@ export class LoginComponent {
 
     public loginModel: LoginModel = new LoginModel();
     public ui: UIConfig;
+
+  @Output()
+  LoginEvent: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(private authService: AuthenticationService, private router: Router, private state: AppState) {
       this.setupUI();
@@ -47,6 +50,7 @@ export class LoginComponent {
           this.state.session.sessionStart = new Date();
           this.state.session.lastActive = new Date();
           this.state.cacheState();
+          this.LoginEvent.emit('LoggedIn');
           this.router.navigate(['']);
         },
         error => {

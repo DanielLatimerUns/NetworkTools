@@ -1,7 +1,5 @@
 <div class='app-container'>
-  <div class='app-toolbar'>
-    <app-global-toolbar *ngIf='authService.isLoggedIn()'></app-global-toolbar>
-  </div>
+  <app-global-toolbar *ngIf='authService.isLoggedIn()'></app-global-toolbar>
   <div class='app-content'>
     <router-outlet></router-outlet>
   </div>
