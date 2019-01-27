@@ -30,13 +30,18 @@
       <a (click)="openNewTorrentWindow()">&nbsp;<i class="fa fa-stop" aria-hidden="true">&nbsp;&nbsp;</i>Stop All</a>
     </div>    
   </div>
-
-  <div class="new-torrent-window" *ngIf="showNewTorrentWindow">
+  <div class="new-torrent-window-container">
+    <div class="new-torrent-window" *ngIf="showNewTorrentWindow">
       <h1>Add a Torrent</h1>
-      <app-file-upload></app-file-upload>
-      <div>
-        <button (click)="submitNewTorrent()">Submit</button>
-        <button (click)="closeNewTorrentWindow()">Close</button>
+      <app-file-upload class="new-torrent-window-upload"></app-file-upload>
+      <div class="new-torrent-window-textbox">
+        <i class="fa fa-tag"></i>
+        <input type="password" id="passwordInput" [placeholder]="ui.passwordPlaceholder" [(ngModel)]="loginModel.password" />
       </div>
+      <div>
+        <button class="new-torrent-window-btn"(click)="submitNewTorrent()">Submit</button>
+        <button class="new-torrent-window-btn"(click)="closeNewTorrentWindow()">Close</button>
+      </div>
+    </div>
   </div>
 </div>
