@@ -1,46 +1,51 @@
 <div class="component-container">
 
   <div class="torrent-list">
-      <div class="torrent-item" *ngFor="let torrent of torrents">
-        <h2>{{torrent.name}}</h2>
-        <div class="torrent-details">
-          <div><label>Status: </label><P>{{torrent.currentState}}</P></div>
-          <div><label>Remaining : </label><P>{{torrent.sizeLeft}}</P></div>
-          <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
-          <div><label>Progress : </label><P>{{torrent.progress}}</P></div>
-        </div>
-        <div class="torrent-options">
-          <button (click)="startStopTorrent(torrent.hash)">Stop/Start</button>
-          <button (click)="removeTorrent(torrent.hash,false)">Delete</button>
-        </div>
+    <div class="torrent-item" *ngFor="let torrent of torrents">
+      <div class="torrent-title"><P>{{torrent.name}}</P></div>
+      <div class="torrent-details">
+        <div><label>Status: </label><P>{{torrent.currentState}}</P></div>
+        <div><label>Remaining : </label><P>{{torrent.sizeLeft}}</P></div>
+        <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
+        <div><label>Progress : </label><P>{{torrent.progress}}</P></div>
+        <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
+        <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
+        <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
+        <div><label>Total Size : </label><P>{{torrent.totalSize}}</P></div>
       </div>
+      <div class="torrent-options">
+        <button (click)="startStopTorrent(torrent.hash)">Stop/Start</button>
+        <button (click)="removeTorrent(torrent.hash,false)">Delete</button>
+      </div>
+    </div>
   </div>
 
   <div class="sidebar">
     <div class="sidebar-item">
-      <a (click)="openNewTorrentWindow()">&nbsp;<i class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;</i>Add Torrent</a>
+      <a (click)="openNewTorrentWindow()"><i class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;</i>Add Torrent</a>
     </div>
     <div class="sidebar-item">
-      <a (click)="openNewTorrentWindow()">&nbsp;<i class="fa fa-play" aria-hidden="true">&nbsp;&nbsp;</i>Start All</a>
+      <a (click)="openNewTorrentWindow()"><i class="fa fa-play" aria-hidden="true">&nbsp;&nbsp;</i>Start All</a>
     </div>
     <div class="sidebar-item">
-      <a (click)="openNewTorrentWindow()">&nbsp;<i class="fa fa-pause" aria-hidden="true">&nbsp;&nbsp;</i>Pause All</a>
+      <a (click)="openNewTorrentWindow()"><i class="fa fa-pause" aria-hidden="true">&nbsp;&nbsp;</i>Pause All</a>
     </div>
     <div class="sidebar-item">
-      <a (click)="openNewTorrentWindow()">&nbsp;<i class="fa fa-stop" aria-hidden="true">&nbsp;&nbsp;</i>Stop All</a>
+      <a (click)="openNewTorrentWindow()"><i class="fa fa-stop" aria-hidden="true">&nbsp;&nbsp;</i>Stop All</a>
     </div>    
   </div>
-  <div class="new-torrent-window-container">
-    <div class="new-torrent-window" *ngIf="showNewTorrentWindow">
+
+  <div class="new-torrent-container" *ngIf="showNewTorrentWindow">
+    <div class="new-torrent">
       <h1>Add a Torrent</h1>
-      <app-file-upload class="new-torrent-window-upload"></app-file-upload>
-      <div class="new-torrent-window-textbox">
+      <app-file-upload class="new-torrent-upload"></app-file-upload>
+      <div class="new-torrent-textbox">
         <i class="fa fa-tag"></i>
-        <input type="password" id="passwordInput" [placeholder]="ui.passwordPlaceholder" [(ngModel)]="loginModel.password" />
+        <input type="text" placeholder="Label"/>
       </div>
-      <div>
-        <button class="new-torrent-window-btn"(click)="submitNewTorrent()">Submit</button>
-        <button class="new-torrent-window-btn"(click)="closeNewTorrentWindow()">Close</button>
+      <div class="new-torrent-btn-container">
+        <button class="new-torrent-btn" (click)="submitNewTorrent()">Submit</button>
+        <button class="new-torrent-btn" (click)="closeNewTorrentWindow()">Close</button>
       </div>
     </div>
   </div>
