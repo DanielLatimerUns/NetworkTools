@@ -10,7 +10,9 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
 })
 export class TorrentManagerComponent {
     constructor(private torrentService: TorrentService) {
-      setInterval(() => this.loadTorrents(), 1000);
+    //  setInterval(() => this.loadTorrents(), 1000);
+
+    this.loadTorrents();
     }
 
     torrents: TorrentModel[];
@@ -81,6 +83,6 @@ export class TorrentManagerComponent {
     }
 
     public calculateProgress(progress: number) {
-      return Math.round((progress / 1) * 100);
+      return  `${Math.round((progress / 1) * 100)}%`;
     }
 }
