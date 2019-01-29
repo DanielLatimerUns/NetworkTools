@@ -35,7 +35,6 @@
 .torrent-list {
   grid-column: 2;
   background-color:#ededed;
-  overflow: auto;
 }
 
 .torrent-item {

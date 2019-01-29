@@ -79,4 +79,8 @@ export class TorrentManagerComponent {
     public openNewTorrentWindow() {
       this.showNewTorrentWindow = true;
     }
+
+    public calculateProgress(progress: number) {
+      return Math.round((progress / 1) * 100);
+    }
 }
