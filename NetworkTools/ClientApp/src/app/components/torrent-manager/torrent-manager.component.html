@@ -13,7 +13,7 @@
       </div>
       <div class="torrent-options">
         <button (click)="startStopTorrent(torrent.hash)">Stop/Start</button>
-        <button (click)="removeTorrent(torrent.hash,false)">Delete</button>
+        <button (click)="openTorrentDeleteWindow()">Delete</button>
       </div>
     </div>
   </div>
@@ -39,11 +39,22 @@
       <app-file-upload class="new-torrent-upload"></app-file-upload>
       <div class="new-torrent-textbox">
         <i class="fa fa-tag"></i>
-        <input type="text" placeholder="Label"/>
+        <input type="text" placeholder="Label" />
       </div>
       <div class="new-torrent-btn-container">
-        <button class="new-torrent-btn" (click)="submitNewTorrent()">Submit</button>
-        <button class="new-torrent-btn" (click)="closeNewTorrentWindow()">Close</button>
+        <button class="new-torrent-btn-submit" (click)="submitNewTorrent()">Submit</button>
+        <button class="new-torrent-btn-close" (click)="closeNewTorrentWindow()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="torrent-delete-container" *ngIf="showTorrentDeleteWindow">
+    <div class="torrent-delete">
+      <h1>Remove torrent</h1>
+      <input type="checkbox" id="permaDelete">
+      <div class="torrent-delete-btn-container">
+        <button class="torrent-delete-btn-submit" (click)="permaDelete(torrent.hash)">Submit</button>
+        <button class="torrent-delete-btn-close" (click)="closeTorrentDeleteWindow()">Close</button>
       </div>
     </div>
   </div>

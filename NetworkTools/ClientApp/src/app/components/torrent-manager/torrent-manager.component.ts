@@ -1,6 +1,8 @@
 ﻿import { Component, ViewChild } from '@angular/core';
 import { TorrentService } from '../../services/torrent.service';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { variable } from '@angular/compiler/src/output/output_ast';
+import { removeSummaryDuplicates } from '@angular/compiler';
 
 @Component({
     selector: 'app-torrent-manager',
@@ -17,6 +19,8 @@ export class TorrentManagerComponent {
 
     torrents: TorrentModel[];
     showNewTorrentWindow = false;
+    showTorrentDeleteWindow = false;
+    permaDeleteTorrent = false;
     @ViewChild(FileUploadComponent)fileUploader: FileUploadComponent;
 
     loadTorrents() {
@@ -66,8 +70,13 @@ export class TorrentManagerComponent {
       });
     }
 
-    public removeTorrent(hash: string, permaDelete: boolean) {
-      this.torrentService.removeTorrent(hash, permaDelete)
+    public permaDelete(hash: string) {
+      this.permaDeleteTorrent = document.getElementById('permaDelete').checked;
+      this.removeTorrent(hash, this.permaDeleteTorrent)
+    }
+
+    public removeTorrent(hash: string, permaDeleteTorrent) {
+      this.torrentService.removeTorrent(hash, this.permaDeleteTorrent)
       .subscribe(
         result => console.log(hash + 'removed'),
         error => console.error(error)
@@ -80,6 +89,14 @@ export class TorrentManagerComponent {
 
     public openNewTorrentWindow() {
       this.showNewTorrentWindow = true;
+    }
+
+    public closeTorrentDeleteWindow() {
+      this.showTorrentDeleteWindow = false;
+    }
+
+    public openTorrentDeleteWindow() {
+      this.showTorrentDeleteWindow = true;
     }
 
     public calculateProgress(progress: number) {
