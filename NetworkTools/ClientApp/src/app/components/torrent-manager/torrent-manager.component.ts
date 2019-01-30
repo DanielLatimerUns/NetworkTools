@@ -12,15 +12,21 @@ import { removeSummaryDuplicates } from '@angular/compiler';
 })
 export class TorrentManagerComponent {
     constructor(private torrentService: TorrentService) {
-    //  setInterval(() => this.loadTorrents(), 1000);
+     //setInterval(() => this.loadTorrents(), 1000);
 
     this.loadTorrents();
     }
 
-    torrents: TorrentModel[];
-    showNewTorrentWindow = false;
-    showTorrentDeleteWindow = false;
-    permaDeleteTorrent = false;
+    public torrents: TorrentModel[];
+
+    public showNewTorrentWindow = false;
+
+    public showTorrentDeleteWindow = false;
+
+    public permaDeleteTorrent = false;
+
+    public selectedTorrent = '';
+
     @ViewChild(FileUploadComponent)fileUploader: FileUploadComponent;
 
     loadTorrents() {
@@ -40,7 +46,7 @@ export class TorrentManagerComponent {
         this.torrentService.addTorrent(this.fileUploader.torrentFormFile)
         .subscribe(
           (response) => {
-            this.closeNewTorrentWindow();
+            this.showNewTorrentWindow = false;
             this.loadTorrents();
           },
           error => {
@@ -70,32 +76,32 @@ export class TorrentManagerComponent {
       });
     }
 
-    public permaDelete(hash: string) {
-      this.permaDeleteTorrent = document.getElementById('permaDelete').checked;
-      this.removeTorrent(hash, this.permaDeleteTorrent)
-    }
-
-    public removeTorrent(hash: string, permaDeleteTorrent) {
-      this.torrentService.removeTorrent(hash, this.permaDeleteTorrent)
+    public removeTorrent(hash: string, permaDelete: boolean) {
+      this.torrentService.removeTorrent(hash, permaDelete)
       .subscribe(
-        result => console.log(hash + 'removed'),
+        result => console.log(this.selectedTorrent + 'removed'),
         error => console.error(error)
       );
     }
 
-    public closeNewTorrentWindow() {
+    public removeTorrentButtonClick() {
+      this.removeTorrent(this.selectedTorrent, this.permaDeleteTorrent);
+    }
+
+    public closeNewTorrentWindowButtonClick() {
       this.showNewTorrentWindow = false;
     }
 
-    public openNewTorrentWindow() {
+    public openNewTorrentWindowButtonClick() {
       this.showNewTorrentWindow = true;
     }
 
-    public closeTorrentDeleteWindow() {
+    public closeTorrentDeleteWindowButtonClick() {
       this.showTorrentDeleteWindow = false;
     }
 
-    public openTorrentDeleteWindow() {
+    public openTorrentDeleteWindowButtonClick(hash: string) {
+      this.selectedTorrent = hash;
       this.showTorrentDeleteWindow = true;
     }
 

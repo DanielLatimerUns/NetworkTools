@@ -13,14 +13,14 @@
       </div>
       <div class="torrent-options">
         <button (click)="startStopTorrent(torrent.hash)">Stop/Start</button>
-        <button (click)="openTorrentDeleteWindow()">Delete</button>
+        <button (click)="openTorrentDeleteWindowButtonClick(torrent.hash)">Delete</button>
       </div>
     </div>
   </div>
 
   <div class="sidebar">
     <div class="sidebar-item">
-      <a (click)="openNewTorrentWindow()"><i class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;</i>Add Torrent</a>
+      <a (click)="openNewTorrentWindowButtonClick()"><i class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;</i>Add Torrent</a>
     </div>
     <div class="sidebar-item">
       <a (click)="openNewTorrentWindow()"><i class="fa fa-play" aria-hidden="true">&nbsp;&nbsp;</i>Start All</a>
@@ -43,7 +43,7 @@
       </div>
       <div class="new-torrent-btn-container">
         <button class="new-torrent-btn-submit" (click)="submitNewTorrent()">Submit</button>
-        <button class="new-torrent-btn-close" (click)="closeNewTorrentWindow()">Close</button>
+        <button class="new-torrent-btn-close" (click)="closeNewTorrentWindowButtonClick()">Close</button>
       </div>
     </div>
   </div>
@@ -51,11 +51,12 @@
   <div class="torrent-delete-container" *ngIf="showTorrentDeleteWindow">
     <div class="torrent-delete">
       <h1>Remove torrent</h1>
-      <input type="checkbox" id="permaDelete">
+      <input type="checkbox" id="permaDelete" [(ngModel)]="permaDeleteTorrent">
       <div class="torrent-delete-btn-container">
-        <button class="torrent-delete-btn-submit" (click)="permaDelete(torrent.hash)">Submit</button>
-        <button class="torrent-delete-btn-close" (click)="closeTorrentDeleteWindow()">Close</button>
+        <button class="torrent-delete-btn-submit" (click)="removeTorrentButtonClick()">Submit</button>
+        <button class="torrent-delete-btn-close" (click)="closeTorrentDeleteWindowButtonClick()">Close</button>
       </div>
     </div>
   </div>
+
 </div>
