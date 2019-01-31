@@ -33,28 +33,30 @@
     </div>
   </div>
 
-  <div class="new-torrent-container" *ngIf="showNewTorrentWindow">
-    <div class="new-torrent">
+  <div class="window-container" *ngIf="showNewTorrentWindow">
+    <div class="window">
       <h1>Add a Torrent</h1>
       <app-file-upload class="new-torrent-upload"></app-file-upload>
       <div class="new-torrent-textbox">
         <i class="fa fa-tag"></i>
         <input type="text" placeholder="Label" />
       </div>
-      <div class="new-torrent-btn-container">
-        <button class="new-torrent-btn-submit" (click)="submitNewTorrent()">Submit</button>
-        <button class="new-torrent-btn-close" (click)="closeNewTorrentWindowButtonClick()">Close</button>
+      <div class="window-btn-container">
+        <button class="window-btn-submit" (click)="submitNewTorrent()">Submit</button>
+        <button class="window-btn-close" (click)="closeNewTorrentWindowButtonClick()">Close</button>
       </div>
     </div>
   </div>
 
-  <div class="torrent-delete-container" *ngIf="showTorrentDeleteWindow">
-    <div class="torrent-delete">
+  <div class="window-container" *ngIf="showTorrentDeleteWindow">
+    <div class="window">
       <h1>Remove torrent</h1>
-      <input type="checkbox" id="permaDelete" [(ngModel)]="permaDeleteTorrent">
-      <div class="torrent-delete-btn-container">
-        <button class="torrent-delete-btn-submit" (click)="removeTorrentButtonClick()">Submit</button>
-        <button class="torrent-delete-btn-close" (click)="closeTorrentDeleteWindowButtonClick()">Close</button>
+      <label class="delete-label">
+        <input type="checkbox" class="delete-checkbox" [(ngModel)]="permaDeleteTorrent">Remove torrent and Data
+      </label>
+      <div class="window-btn-container">
+        <button class="window-btn-submit" (click)="removeTorrentButtonClick()">Submit</button>
+        <button class="window-btn-close" (click)="closeTorrentDeleteWindowButtonClick()">Close</button>
       </div>
     </div>
   </div>
