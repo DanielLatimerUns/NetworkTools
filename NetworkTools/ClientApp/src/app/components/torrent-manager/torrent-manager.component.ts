@@ -19,8 +19,16 @@ export class TorrentManagerComponent {
       ];
     }
 
-    torrents: TorrentModel[];
-    showNewTorrentWindow = false;
+    public torrents: TorrentModel[];
+
+    public showNewTorrentWindow = false;
+
+    public showTorrentDeleteWindow = false;
+
+    public permaDeleteTorrent = false;
+
+    public selectedTorrent = '';
+
     @ViewChild(FileUploadComponent)fileUploader: FileUploadComponent;
 
     loadTorrents() {
@@ -40,7 +48,7 @@ export class TorrentManagerComponent {
         this.torrentService.addTorrent(this.fileUploader.torrentFormFile)
         .subscribe(
           (response) => {
-            this.closeNewTorrentWindow();
+            this.showNewTorrentWindow = false;
             this.loadTorrents();
           },
           error => {
@@ -87,17 +95,30 @@ export class TorrentManagerComponent {
     public removeTorrent(hash: string, permaDelete: boolean) {
       this.torrentService.removeTorrent(hash, permaDelete)
       .subscribe(
-        result => console.log(hash + 'removed'),
+        result => console.log(this.selectedTorrent + 'removed'),
         error => console.error(error)
       );
     }
 
-    public closeNewTorrentWindow() {
+    public removeTorrentButtonClick() {
+      this.removeTorrent(this.selectedTorrent, this.permaDeleteTorrent);
+    }
+
+    public closeNewTorrentWindowButtonClick() {
       this.showNewTorrentWindow = false;
     }
 
-    public openNewTorrentWindow() {
+    public openNewTorrentWindowButtonClick() {
       this.showNewTorrentWindow = true;
+    }
+
+    public closeTorrentDeleteWindowButtonClick() {
+      this.showTorrentDeleteWindow = false;
+    }
+
+    public openTorrentDeleteWindowButtonClick(hash: string) {
+      this.selectedTorrent = hash;
+      this.showTorrentDeleteWindow = true;
     }
 
     public calculateProgress(progress: number) {
