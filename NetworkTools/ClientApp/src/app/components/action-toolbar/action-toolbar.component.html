@@ -1,0 +1,6 @@
+﻿
+<div class="sidebar">
+      <div *ngFor="let action of actions" class="sidebar-item">
+          <a (click)="actionButtonClick(action.ActionId)"><i class="fa fa-plus" aria-hidden="true">&nbsp;&nbsp;</i>{{action.ActionName}}</a>
+      </div>
+</div>

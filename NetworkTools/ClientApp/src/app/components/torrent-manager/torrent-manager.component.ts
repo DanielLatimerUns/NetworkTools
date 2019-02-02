@@ -1,6 +1,8 @@
 ﻿import { Component, ViewChild } from '@angular/core';
 import { TorrentService } from '../../services/torrent.service';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { AppState } from '../../state/appState';
+import { ActionModel } from '../../models/actionModel';
 
 @Component({
     selector: 'app-torrent-manager',
@@ -9,10 +11,12 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
     providers: [ TorrentService ]
 })
 export class TorrentManagerComponent {
-    constructor(private torrentService: TorrentService) {
-    //  setInterval(() => this.loadTorrents(), 1000);
+    constructor(private torrentService: TorrentService, state: AppState) {
+      setInterval(() => this.loadTorrents(), 1000);
 
-    this.loadTorrents();
+      state.actionBarActions = [
+        new ActionModel (1 , 'Stop All', () => this.stopAll(this.torrents) )
+      ];
     }
 
     torrents: TorrentModel[];
@@ -62,6 +66,20 @@ export class TorrentManagerComponent {
               error => console.error(error)
             );
           }
+        }
+      });
+    }
+
+    private stopAll(torrents: TorrentModel[]) {
+      if (!torrents) {
+        return;
+      }
+      torrents.forEach((torrent) => {
+        if (!torrent.currentState.includes('paused')) {
+          this.torrentService.stopTorrent(torrent.hash).subscribe(
+            (result) => console.log(torrent.hash + 'Paused'),
+            error => console.error(error)
+          );
         }
       });
     }

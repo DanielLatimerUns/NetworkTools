@@ -1,6 +1,7 @@
 import { UserModel } from '../models/userModel';
 import { Injectable } from '@angular/core';
 import { SessionModel } from '../models/sessionModel';
+import { ActionModel } from '../models/actionModel';
 
 @Injectable()
 export class AppState {
@@ -8,6 +9,7 @@ export class AppState {
   public token: JTWToken;
   public user: UserModel;
   public session: SessionModel;
+  public actionBarActions: ActionModel[];
 
   /**
    *

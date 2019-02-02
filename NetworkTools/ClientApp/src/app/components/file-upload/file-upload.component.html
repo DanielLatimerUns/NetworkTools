@@ -1,6 +1,6 @@
 
 <div class='form-container'>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form">
     <div class="form-group">
       <label for="torrent">{{ui.fileSelectionInputText}}</label>
       <input type="file" id="torrent" (change)="onFileChange($event)">
