@@ -56,5 +56,30 @@ namespace NetwrokTools.TorrentService.Models
 
         [JsonProperty(PropertyName = "state")]
         public string CurrentState { get; set; }
+
+        [JsonProperty(PropertyName = "dlspeed")]
+        public int Dlspeed { get; set; }
+
+        [JsonProperty(PropertyName = "upspeed")]
+        public int Upload { get; set; }
+
+        [JsonProperty(PropertyName = "num_seeds")]
+        public int Num_seeds { get; set; }
+
+        [JsonProperty(PropertyName = "num_complete")]
+        public int Num_complete { get; set; }
+
+        [JsonProperty(PropertyName = "num_leechs")]
+        public int Num_leechs { get; set; }
+
+        [JsonProperty(PropertyName = "num_incomplete")]
+        public int Num_incomplete { get; set; }
+
+        [JsonProperty(PropertyName = "ratio")]
+        public float Ratio { get; set; }
+
+        [JsonProperty(PropertyName = "eta")]
+        public int Eta { get; set; }
+
     }
 }

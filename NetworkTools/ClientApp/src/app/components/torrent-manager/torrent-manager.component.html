@@ -10,6 +10,12 @@
         <div><label>Status</label><P>{{torrent.currentState}}</P></div>
         <div><label>Remaining</label><P>{{torrent.sizeLeft}}</P></div>
         <div><label>Total Size</label><P>{{torrent.totalSize}}</P></div>
+        <div><label>Download Speed</label><P>{{torrent.dl_speed}}</P></div>
+        <div><label>Upload speed</label><P>{{torrent.up_speed}}</P></div>
+        <div><label>ETA</label><P>{{torrent.eta}}</P></div>
+        <div><label>Ratio</label><P>{{torrent.ratio}}</P></div>
+        <div><label>Seeds</label><P>{{torrent.num_seeds}}</P></div>
+        <div><label>Peers</label><P>{{torrent.num_leechs}}</P></div>
       </div>
       <div class="torrent-options">
         <button (click)="startStopTorrent(torrent.hash)">Stop/Start</button>
