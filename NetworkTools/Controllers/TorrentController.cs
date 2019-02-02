@@ -59,7 +59,7 @@ namespace NetworkTools.Web.Controllers
             try
             {
                 var response = await _torrentService.GetTorrentsAsync();
-                return Ok(_mapper.Map<List<TorrentViewModel>>(response));
+                return Ok(_mapper.Map<List<TorrentViewModel>>(response.OrderByDescending(t => t.AddedDate)));
             }
             catch(Exception ex)
             {

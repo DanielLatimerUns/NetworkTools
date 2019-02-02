@@ -13,5 +13,6 @@ export class HomeComponent {
     const isLoggedIn = authService.isLoggedIn();
     if (!isLoggedIn) {
        router.navigate(['login']); }
+    state.actionBarActions = [];
   }
 }

@@ -13,6 +13,7 @@ import { AppState } from './state/appState';
 import { CustomHttpInterceptor } from './services/httpInterceptor';
 import { AuthenticationService } from './services/authentication.service';
 import { TorrentManagerComponent } from './components/torrent-manager/torrent-manager.component';
+import { ActionToolbarComponent } from './components/action-toolbar/action-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TorrentManagerComponent } from './components/torrent-manager/torrent-ma
     HomeComponent,
     FileUploadComponent,
     LoginComponent,
-    TorrentManagerComponent
+    TorrentManagerComponent,
+    ActionToolbarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
