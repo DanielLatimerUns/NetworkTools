@@ -14,6 +14,7 @@ import { CustomHttpInterceptor } from './services/httpInterceptor';
 import { AuthenticationService } from './services/authentication.service';
 import { TorrentManagerComponent } from './components/torrent-manager/torrent-manager.component';
 import { ActionToolbarComponent } from './components/action-toolbar/action-toolbar.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ActionToolbarComponent } from './components/action-toolbar/action-toolb
     FileUploadComponent,
     LoginComponent,
     TorrentManagerComponent,
-    ActionToolbarComponent
+    ActionToolbarComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,7 +36,8 @@ import { ActionToolbarComponent } from './components/action-toolbar/action-toolb
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent, pathMatch: 'full'},
       { path: 'login', component: LoginComponent, pathMatch: 'full'},
-      { path: 'torrent-manager', component: TorrentManagerComponent , pathMatch: 'full'}
+      { path: 'torrent-manager', component: TorrentManagerComponent, pathMatch: 'full' },
+      { path: 'settings', component: SettingsComponent, pathMatch: 'full' }
     ])
   ],
   providers: [

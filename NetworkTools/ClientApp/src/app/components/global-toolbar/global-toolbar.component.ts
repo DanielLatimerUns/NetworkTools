@@ -24,5 +24,9 @@ export class GlobalToolbarComponent {
 
     loadTorrent() {
         this.router.navigate(['torrent-manager']);
+  }
+
+    loadsettings() {
+      this.router.navigate(['settings']);
     }
 }

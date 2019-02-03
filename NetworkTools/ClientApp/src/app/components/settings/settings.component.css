@@ -1,0 +1,27 @@
+.component-container{
+  background-color:#e4e4e4;
+  display:grid;
+  grid-template-rows: 30px auto 30px;
+}
+
+.header {
+  display:grid;
+  grid-row: 1;
+  margin: 10px 7px 7px 4px;
+  grid-template-columns: 200px auto 200px;
+}
+
+.header-title {
+  grid-column: 1 ;
+}
+.version {
+  grid-column: 3;
+  display:flex;
+}
+
+.dynamic-settings-window {
+  grid-row:2;
+}
+.footer {
+  grid-row:3;
+}
