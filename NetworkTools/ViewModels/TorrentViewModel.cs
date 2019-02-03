@@ -23,9 +23,9 @@ namespace NetworkTools.Web.ViewModels
 
         public string CurrentState { get; set; }
 
-        public int Dl_speed { get; set; }
+        public string Dl_speed { get; set; }
 
-        public int Up_speed { get; set; }
+        public string Up_speed { get; set; }
 
         public int Num_seeds { get; set; }
 

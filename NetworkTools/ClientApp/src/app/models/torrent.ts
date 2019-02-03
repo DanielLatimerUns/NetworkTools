@@ -9,8 +9,8 @@ interface TorrentModel {
   hash: string;
   addedDate: Date;
   currentState: string;
-  dl_speed: number;
-  up_speed: number;
+  dl_speed: string;
+  up_speed: string;
   num_seeds: number;
   num_complete: number;
   num_leechs: number;
