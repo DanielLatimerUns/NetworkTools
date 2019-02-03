@@ -1,4 +1,4 @@
-﻿/*Sidebar*/
+/*Sidebar*/
 .sidebar {
   grid-column: 1;
   grid-row:1;
@@ -16,6 +16,6 @@
 }
 
 .sidebar-item {
-  width: 120px;
-  padding: 10px 0px 10px 15px;
+  width: 100px;
+  padding: 10px 0px 10px 5px;
 }
