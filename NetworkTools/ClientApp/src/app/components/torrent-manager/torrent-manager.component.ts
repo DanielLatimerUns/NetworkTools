@@ -15,7 +15,7 @@ export class TorrentManagerComponent {
       setInterval(() => this.loadTorrents(), 1000);
 
       state.actionBarActions = [
-        new ActionModel (1 , 'Stop All', () => this.stopAll(this.torrents) )
+        new ActionModel (1 , 'Stop All',   this.stopAll.bind(this))
       ];
     }
 
@@ -78,11 +78,11 @@ export class TorrentManagerComponent {
       });
     }
 
-    private stopAll(torrents: TorrentModel[]) {
-      if (!torrents) {
+    private stopAll() {
+      if (!this.torrents) {
         return;
       }
-      torrents.forEach((torrent) => {
+      this.torrents.forEach((torrent) => {
         if (!torrent.currentState.includes('paused')) {
           this.torrentService.stopTorrent(torrent.hash).subscribe(
             (result) => console.log(torrent.hash + 'Paused'),
