@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 NetworkTools/appsettings.json
+NetworkTools/ClientApp/src/app/models/torrent.js
+NetworkTools/ClientApp/src/app/models/torrent.js.map

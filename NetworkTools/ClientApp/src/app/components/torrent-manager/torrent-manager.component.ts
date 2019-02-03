@@ -15,7 +15,8 @@ export class TorrentManagerComponent {
       setInterval(() => this.loadTorrents(), 1000);
 
       state.actionBarActions = [
-        new ActionModel (1 , 'Stop All',   this.stopAll.bind(this))
+        new ActionModel (1 , 'Stop All',  () => this.stopAll.bind(this)),
+        new ActionModel (2 , 'Add torrent', this.openNewTorrentWindowButtonClick.bind(this)),
       ];
     }
 
