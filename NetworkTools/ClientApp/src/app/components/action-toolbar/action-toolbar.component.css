@@ -3,6 +3,7 @@
   grid-column: 1;
   grid-row:1;
   background-color: #333;
+  height: 100%
 }
 
 .sidebar a {
