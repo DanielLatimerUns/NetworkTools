@@ -1,4 +1,4 @@
-﻿import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TorrentService } from '../../services/torrent.service';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
 import { AppState } from '../../state/appState';
@@ -124,5 +124,9 @@ export class TorrentManagerComponent {
 
     public calculateProgress(progress: number) {
       return  `${Math.round((progress / 1) * 100)}%`;
+    }
+
+  public calculateRatio(progress: number) {
+      return  `${Math.round((progress / 1) * 100)}`;
     }
 }

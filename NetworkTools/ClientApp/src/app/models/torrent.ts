@@ -16,5 +16,5 @@ interface TorrentModel {
   num_leechs: number;
   num_incomplete: number;
   ratio: number;
-  eta: number;
+  eta: string;
 }

@@ -96,8 +96,17 @@ namespace NetwrokTools.TorrentService.Models
         [JsonProperty(PropertyName = "ratio")]
         public float Ratio { get; set; }
 
+        private string _eta;
+
         [JsonProperty(PropertyName = "eta")]
-        public int Eta { get; set; }
+        public string Eta {
+
+            get { return _eta; }
+            set
+            {
+                _eta = SecondsConverter.TimeSuffix(long.Parse(value));
+            }
+        }
 
     }
 }

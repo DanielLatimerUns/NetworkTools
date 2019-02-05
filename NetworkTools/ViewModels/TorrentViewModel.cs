@@ -37,6 +37,6 @@ namespace NetworkTools.Web.ViewModels
 
         public float Ratio { get; set; }
 
-        public int Eta { get; set; }
+        public string Eta { get; set; }
     }
 }

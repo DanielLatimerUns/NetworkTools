@@ -13,7 +13,7 @@
         <div><label>Download Speed</label><P>{{torrent.dl_speed}}</P></div>
         <div><label>Upload speed</label><P>{{torrent.up_speed}}</P></div>
         <div><label>ETA</label><P>{{torrent.eta}}</P></div>
-        <div><label>Ratio</label><P>{{torrent.ratio}}</P></div>
+        <div><label>Ratio</label><P [ngStyle]="{width: calculateRatio(torrent.ratio)}"></P></div>
         <div><label>Seeds</label><P>{{torrent.num_seeds}}&nbsp;({{torrent.num_complete}})</P></div>
         <div><label>Peers</label><P>{{torrent.num_leechs}}&nbsp;({{torrent.num_incomplete}})</P></div>
       </div>
