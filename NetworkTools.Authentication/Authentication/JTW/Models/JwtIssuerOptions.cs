@@ -21,8 +21,7 @@ namespace NetworkTools.Authentication
         /// <summary>
         /// 4.1.3.  "aud" (Audience) Claim - The "aud" (audience) claim identifies the recipients that the JWT is intended for.
         /// </summary>
-        public string Audience { get; set; }
-
+        public string Audience { get; set; } = "http://www.networktools.7techsolutions.net/";
         /// <summary>
         /// 4.1.4.  "exp" (Expiration Time) Claim - The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.
         /// </summary>

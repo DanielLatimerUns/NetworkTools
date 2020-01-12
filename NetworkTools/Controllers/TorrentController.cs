@@ -11,8 +11,6 @@ using NetworkTools.Web.ViewModels;
 using NetwrokTools.TorrentService.Models;
 using NetwrokTools.TorrentService.Service;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace NetworkTools.Web.Controllers
 {
     [Route("api/torrents")]

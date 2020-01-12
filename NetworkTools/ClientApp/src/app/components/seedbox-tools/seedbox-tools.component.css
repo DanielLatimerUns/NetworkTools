@@ -1,0 +1,17 @@
+.component-container {
+    padding: 10px;
+    display: flex;
+}
+
+:host .directories-widget ul  {
+    list-style: none;
+}
+
+
+:host .directories-widget ul > li > div {
+    display: inline-flex
+}
+
+:host .directories-widget ul > li > div > h3 {
+    padding-right: 20px;
+}

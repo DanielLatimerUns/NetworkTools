@@ -17,7 +17,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +36,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NetworkTools.Authentication\NetworkTools.Authentication.csproj" />
     <ProjectReference Include="..\NetworkTools.Diagnostics\NetworkTools.DiagnosticsServices.csproj" />
+    <ProjectReference Include="..\NetworkTools.RemoteShellServices\NetworkTools.RemoteShellServices.csproj" />
     <ProjectReference Include="..\NetwrokTools.TorrentService\NetwrokTools.TorrentService.csproj" />
   </ItemGroup>
 
@@ -46,6 +47,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\state\" />
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

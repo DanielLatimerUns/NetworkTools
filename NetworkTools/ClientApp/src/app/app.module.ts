@@ -15,6 +15,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { TorrentManagerComponent } from './components/torrent-manager/torrent-manager.component';
 import { ActionToolbarComponent } from './components/action-toolbar/action-toolbar.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { SeedboxToolsComponent } from './components/seedbox-tools/seedbox-tools.component';
+import { WidgetComponent } from './sub-components/widget.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     LoginComponent,
     TorrentManagerComponent,
     ActionToolbarComponent,
-    SettingsComponent
+    SettingsComponent,
+    SeedboxToolsComponent,
+    WidgetComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,11 +37,13 @@ import { SettingsComponent } from './components/settings/settings.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: SeedboxToolsComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent, pathMatch: 'full'},
       { path: 'login', component: LoginComponent, pathMatch: 'full'},
       { path: 'torrent-manager', component: TorrentManagerComponent, pathMatch: 'full' },
-      { path: 'settings', component: SettingsComponent, pathMatch: 'full' }
+      { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
+      { path: 'seedbox-tools', component: SeedboxToolsComponent, pathMatch: 'full'},
+      { path: 'widget', component: WidgetComponent, pathMatch: 'full'},
     ])
   ],
   providers: [

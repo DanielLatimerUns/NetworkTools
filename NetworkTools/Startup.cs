@@ -14,6 +14,8 @@ using Microsoft.IdentityModel.Tokens;
 using NetworkTools.Authentication;
 using NetworkTools.Authentication.DataAccess;
 using NetworkTools.DiagnosticsService.Services;
+using NetworkTools.RemoteShellServices.FileSystemServices;
+using NetworkTools.RemoteShellServices.SSHClient;
 using NetworkTools.Web.Mapping;
 using NetwrokTools.TorrentService.Service;
 using Newtonsoft.Json.Serialization;
@@ -39,7 +41,10 @@ namespace NetworkTools.Web
             services.AddTransient<ITorrentService, TorrentService>();
             services.AddTransient<IDiagnosticsService, DiagnosticsService.Services.DiagnosticsService>();
             services.AddTransient<IJwtFactory, JwtFactory>();
-            services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Local")));
+            services.AddTransient<IStorageService, StorageService>();
+            services.AddTransient<ISSHClient, SSHClient>();
+
+            services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Networktools")));
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
@@ -57,14 +62,15 @@ namespace NetworkTools.Web
                 options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
                 options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
                 options.SigningCredentials = new SigningCredentials(KeyFactory.GetKey(), SecurityAlgorithms.HmacSha256);
+            
             });
 
             var tokenValidationParameters = new TokenValidationParameters
             {
-                ValidateIssuer = true,
+                ValidateIssuer = false,
                 ValidIssuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)],
 
-                ValidateAudience = true,
+                ValidateAudience = false,
                 ValidAudience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)],
 
                 ValidateIssuerSigningKey = true,
